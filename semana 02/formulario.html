@@ -1,0 +1,58 @@
+<!-- COMEÇO DO HTML -->
+<!DOCTYPE html>
+<!-- INICO TAG PRINCIPAL -->
+<html>
+  <!-- CABEÇALHO -->
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- MENU INTERATIVO -->
+    <title>Formulário de Contato</title>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="formulario.html">formulario</a></li>
+          <li><a href="imagens.html">imagens</a></li>
+          <li><a href="tabelas.html">tabelas</a></li>
+          <li><a href="index.html">principal</a></li>
+        </ul>
+      </nav>
+  
+    </div>
+  </head>
+  <!-- CORPO DO HTML -->
+  <body>
+    <h2>Entre em Contato</h2>
+    <!-- CONSTUÇAÕ DO FORMULARIO -->
+    <form action="#" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required /><br /><br />
+      <label for="assunto">Assunto:</label>
+      <input type="text" id="assunto" name="assunto" required /><br /><br />
+      <label for="mensagem">Mensagem:</label><br />
+      <!-- AREA EDITAVEL -->
+      <textarea
+        id="mensagem"
+        name="mensagem"
+        rows="5"
+        cols="30"
+        required
+      ></textarea
+      ><br /><br />
+      <!-- SELEÇÃO -->
+      <label for="como-nos-achou">Como nos achou?</label>
+      <select id="como-nos-achou" name="como-nos-achou">
+        <option value="internet">Internet</option>
+        <option value="amigos">Amigos</option>
+        <option value="jornal">Jornal</option>
+        <option value="outro">Outro</option></select
+      ><br /><br />
+      <!-- BOTOES INTERATIVOS  -->
+      <input type="submit" value="Enviar" />
+      <input type="reset" value="Limpar" />
+    </form>
+  </body>
+</html>
