@@ -1,6 +1,10 @@
+<!-- COMEÇO DO HTML -->
 <!DOCTYPE html>
+<!-- INICO TAG PRINCIPAL -->
 <html>
+  <!-- CABEÇALHO -->
   <head>
+    <!-- MENU INTERATIVO -->
     <title>Formulário de Contato</title>
     <nav>
 		<ul>
@@ -11,8 +15,10 @@
 		</ul>
 	</nav>
   </head>
+  <!-- CORPO DO HTML -->
   <body>
     <h2>Entre em Contato</h2>
+    <!-- CONSTUÇAÕ DO FORMULARIO -->
     <form action="#" method="post">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required /><br /><br />
@@ -23,6 +29,7 @@
       <label for="assunto">Assunto:</label>
       <input type="text" id="assunto" name="assunto" required /><br /><br />
       <label for="mensagem">Mensagem:</label><br />
+      <!-- AREA EDITAVEL -->
       <textarea
         id="mensagem"
         name="mensagem"
@@ -31,6 +38,7 @@
         required
       ></textarea
       ><br /><br />
+      <!-- SELEÇÃO -->
       <label for="como-nos-achou">Como nos achou?</label>
       <select id="como-nos-achou" name="como-nos-achou">
         <option value="internet">Internet</option>
@@ -38,6 +46,7 @@
         <option value="jornal">Jornal</option>
         <option value="outro">Outro</option></select
       ><br /><br />
+      <!-- BOTOES INTERATIVOS  -->
       <input type="submit" value="Enviar" />
       <input type="reset" value="Limpar" />
     </form>
