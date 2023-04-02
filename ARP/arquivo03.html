@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tela de Consulta</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+		tr:hover {
+			background-color: #f5f5f5;
+		}
+		input[type=text] {
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 8px 16px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Tela de Consulta</h1>
+	<form>
+		<label for="busca">Buscar:</label>
+		<input type="text" id="busca" name="busca" placeholder="Digite o nome ou CPF do paciente...">
+		<button type="submit">Buscar</button>
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Data de Nascimento</th>
+				<th>CPF</th>
+				<th>Endereço</th>
+				<th>Telefone</th>
+				<th>Contato Extra</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>João da Silva</td>
+				<td>01/01/1980</td>
+				<td>123.456.789-00</td>
+				<td>Rua A, 123</td>
+				<td>(11) 1234-5678</td>
+				<td>Contato extra</td>
+			</tr>
+			<tr>
+				<td>Maria dos Santos</td>
+				<td>05/05/1990</td>
+				<td>987.654.321-00</td>
+				<td>Rua B, 456</td>
+				<td>(11) 2345-6789</td>
+				<td>Outro contato extra</td>
+			</tr>
+			<!-- adicionar mais linhas para mais pacientes -->
+		</tbody>
+	</table>
+</body>
+</html>
+	

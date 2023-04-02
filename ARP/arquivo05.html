@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Lista de Medicamentos</title>
+</head>
+<body>
+	<h1>Lista de Medicamentos</h1>
+	<ul id="medicamentos">
+		<li>Paracetamol <button onclick="removerMedicamento(0)">Remover</button></li>
+		<li>Dipirona <button onclick="removerMedicamento(1)">Remover</button></li>
+		<li>Aspirina <button onclick="removerMedicamento(2)">Remover</button></li>
+	</ul>
+	<input type="text" id="novoMedicamento" placeholder="Digite o nome do medicamento">
+	<button onclick="adicionarMedicamento()">Adicionar Medicamento</button>
+	<script>
+		let listaMedicamentos = ["Paracetamol", "Dipirona", "Aspirina"];
+		let listaElemento = document.getElementById("medicamentos");
+
+		function adicionarMedicamento() {
+			let novoMedicamento = document.getElementById("novoMedicamento").value;
+			if (novoMedicamento != "") {
+				listaMedicamentos.push(novoMedicamento);
+				let novoElemento = document.createElement("li");
+				novoElemento.innerHTML = novoMedicamento + ' <button onclick="removerMedicamento(' + (listaMedicamentos.length-1) + ')">Remover</button>';
+				listaElemento.appendChild(novoElemento);
+				document.getElementById("novoMedicamento").value = "";
+			}
+		}
+
+		function removerMedicamento(index) {
+			listaMedicamentos.splice(index, 1);
+			listaElemento.removeChild(listaElemento.childNodes[index]);
+			for (let i=index; i<listaElemento.childNodes.length; i++) {
+				let elemento = listaElemento.childNodes[i];
+				let novoBotao = document.createElement("button");
+				novoBotao.setAttribute("onclick", "removerMedicamento(" + i + ")");
+				novoBotao.innerHTML = "Remover";
+				elemento.removeChild(elemento.lastChild);
+				elemento.appendChild(novoBotao);
+			}
+		}
+	</script>
+</body>
+</html>
+
