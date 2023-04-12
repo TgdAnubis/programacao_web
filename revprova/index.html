@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de Formulário e Tabela</title>
+    <div>
+        <h3>Curso de Engenharia de Software - UniEVANGÉLICA</h3>
+        <h3>Disciplina de Programação Web</h3>
+        <h3>Dev: Marcos vinicius Fernandes Alves</h3>
+        <h3>DATA: 11/04/2023</h3>
+      </div>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome"><br><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="mensagem">Mensagem:</label>
+		<textarea id="mensagem" name="mensagem"></textarea><br><br>
+
+		<input type="submit" value="Enviar">
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Mensagem</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>João</td>
+				<td>joao@gmail.com</td>
+				<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+			</tr>
+			<tr>
+				<td>Maria</td>
+				<td>maria@hotmail.com</td>
+				<td>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+			</tr>
+			<tr>
+				<td>Pedro</td>
+				<td>pedro@yahoo.com</td>
+				<td>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
