@@ -2,50 +2,66 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+class Curriculo {
+  constructor(id, nome, cargo, experiencia) {
+    this.id = id;
+    this.nome = nome;
+    this.cargo = cargo;
+    this.experiencia = experiencia;
+  }
+}
+
+class CurriculoController {
+  static getAll(req, res) {
+    res.json(curriculos);
+  }
+
+  static getById(req, res) {
+    const id = req.params.id;
+    const curriculo = curriculos.find((c) => c.id === id);
+    if (curriculo) {
+      res.json(curriculo);
+    } else {
+      res.status(404).json({ message: "Currículo não encontrado." });
+    }
+  }
+
+  static create(req, res) {
+    const { id, nome, cargo, experiencia } = req.body;
+    const curriculo = new Curriculo(id, nome, cargo, experiencia);
+    curriculos.push(curriculo);
+    res.status(201).json({ message: "Currículo criado com sucesso.", inputs: req.body });
+  }
+
+  static update(req, res) {
+    const id = req.params.id;
+    const curriculoIndex = curriculos.findIndex((c) => c.id === id);
+    if (curriculoIndex !== -1) {
+      const { nome, cargo, experiencia } = req.body;
+      curriculos[curriculoIndex] = new Curriculo(id, nome, cargo, experiencia);
+      res.json({ message: "Currículo atualizado com sucesso.", inputs: req.body });
+    } else {
+      res.status(404).json({ message: "Currículo não encontrado." });
+    }
+  }
+
+  static delete(req, res) {
+    const id = req.params.id;
+    curriculos = curriculos.filter((c) => c.id !== id);
+    res.json({ message: "Currículo excluído com sucesso." });
+  }
+}
+
 // Banco de dados simulado (array em memória)
 let curriculos = [];
 
-// Rota para obter todos os currículos
-app.get("/curriculos", (req, res) => {
-  res.json(curriculos);
-});
+// Rotas utilizando as classes de controller e model
 
-// Rota para obter um currículo específico pelo ID
-app.get("/curriculos/:id", (req, res) => {
-  const id = req.params.id;
-  const curriculo = curriculos.find((c) => c.id === id);
-  if (curriculo) {
-    res.json(curriculo);
-  } else {
-    res.status(404).json({ message: "Currículo não encontrado." });
-  }
-});
-
-// Rota para criar um novo currículo
-app.post("/curriculos", (req, res) => {
-  const curriculo = req.body;
-  curriculos.push(curriculo);
-  res.status(201).json({ message: "Currículo criado com sucesso.", inputs: req.body });
-});
-
-// Rota para atualizar um currículo existente
-app.put("/curriculos/:id", (req, res) => {
-  const id = req.params.id;
-  const curriculoIndex = curriculos.findIndex((c) => c.id === id);
-  if (curriculoIndex !== -1) {
-    curriculos[curriculoIndex] = req.body;
-    res.json({ message: "Currículo atualizado com sucesso.", inputs: req.body });
-  } else {
-    res.status(404).json({ message: "Currículo não encontrado." });
-  }
-});
-
-// Rota para excluir um currículo
-app.delete("/curriculos/:id", (req, res) => {
-  const id = req.params.id;
-  curriculos = curriculos.filter((c) => c.id !== id);
-  res.json({ message: "Currículo excluído com sucesso." });
-});
+app.get("/curriculos", CurriculoController.getAll);
+app.get("/curriculos/:id", CurriculoController.getById);
+app.post("/curriculos", CurriculoController.create);
+app.put("/curriculos/:id", CurriculoController.update);
+app.delete("/curriculos/:id", CurriculoController.delete);
 
 // Rota para obter lista estática de projetos relacionados
 app.get("/projetos", (req, res) => {
@@ -59,4 +75,5 @@ app.get("/projetos", (req, res) => {
 app.listen(7010, () => {
   console.log("Servidor rodando na porta 7010");
 });
+
 
