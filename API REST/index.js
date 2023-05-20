@@ -25,7 +25,7 @@ app.get("/curriculos/:id", (req, res) => {
 app.post("/curriculos", (req, res) => {
   const curriculo = req.body;
   curriculos.push(curriculo);
-  res.status(201).json({ message: "Currículo criado com sucesso." });
+  res.status(201).json({ message: "Currículo criado com sucesso.", inputs: req.body });
 });
 
 // Rota para atualizar um currículo existente
@@ -34,7 +34,7 @@ app.put("/curriculos/:id", (req, res) => {
   const curriculoIndex = curriculos.findIndex((c) => c.id === id);
   if (curriculoIndex !== -1) {
     curriculos[curriculoIndex] = req.body;
-    res.json({ message: "Currículo atualizado com sucesso." });
+    res.json({ message: "Currículo atualizado com sucesso.", inputs: req.body });
   } else {
     res.status(404).json({ message: "Currículo não encontrado." });
   }
@@ -47,6 +47,16 @@ app.delete("/curriculos/:id", (req, res) => {
   res.json({ message: "Currículo excluído com sucesso." });
 });
 
+// Rota para obter lista estática de projetos relacionados
+app.get("/projetos", (req, res) => {
+  const projetos = [
+    { nome: "Projeto 1", descricao: "Descrição do Projeto 1" },
+    { nome: "Projeto 2", descricao: "Descrição do Projeto 2" },
+  ];
+  res.json(projetos);
+});
+
 app.listen(7010, () => {
   console.log("Servidor rodando na porta 7010");
 });
+
